@@ -1,40 +1,35 @@
-`lslint` is a tool to check the syntactic and semantic validity of Second Life LSL scripts.
-
-[![Build Status](https://travis-ci.com/FixedBit/lslint.svg?branch=master)](https://travis-ci.org/FixedBit/lslint)
-
-For now I have taken over keeping this updated as much as possible as there have been no updates on the official repo in years.
-
-~ FixedBit / Coal Edge
-
-#### Releases
-
-See [Releases](https://github.com/FixedBit/lslint/releases) for binaries.
-Latest release resides [here](https://github.com/FixedBit/lslint/releases/latest).
+All heavy lifting was done by FixedBit-san, Makapoo-san, and who they worked with in the repo history
+This is just a clone with my lazy updates mainly on builtin.txt and builtin_txt.cc
+Please see the original repo - [FixedBit/lslint](https://github.com/FixedBit/lslint)
 
 #### Compiling
-* `make` should be all that's required on POSIX systems, and a solution file exists for VS2015 on Windows.
-* [Win flex-bison](http://sourceforge.net/projects/winflexbison/) as well as VS2015 or [SDK7.0](https://www.microsoft.com/download/details.aspx?id=3138) or later are required for Windows build. See the comment in [NMakefile](NMakefile) for detailed instructions.
+* Install [Visual Studio 2022](https://visualstudio.microsoft.com/ja/vs/community/) and C++ Desktop Environment using the VS installer
+* Install [Win flex-bison](http://sourceforge.net/projects/winflexbison/) to C:\flexandbison
+* Open Visual Studio Command Prompt, cd to the local repo root folder, and run the creator_win64.bat
+* The updated binary lslint.exe should be created in binary\windows64 subfolder when successful
 
 #### License
 All code is public domain unless otherwise noted.
-
 LSL scripts are from various sources and the property of their respective owners.
-
 `.l` and `.y` files are based on samples provided by Linden Lab.
 
 **WARNING:** `lslint` faithfully reproduced all the quirks of the LSL compiler circa ~2006,
 like having constants as lexer tokens, events as part of the parser grammar,
-and lots of right recursion. From a compiler perspective, it does everything
-wrong, and is not recommended as a base for anything but a lint tool.
+and lots of right recursions. From a compiler perspective, it does everything
+wrong and is not recommended as a base for anything but a lint tool.
 
 #### Additional changes
+##### Otoa
+* updated the creator_win64.bat to use VSCode 2022 (I did not touch any other build scripts... sorry)
+* updated builtins.txt and builtins_txt.cc with Second Life Server 2024-12-17 
+  
 ##### Makopoppo
 * added nmake support (see NMAkefile for details).
 * dropped builtins.txt creator. if you look for new builtins.txt, see [kwdb project](https://github.com/Sei-Lisa/kwdb)
 * enabled appending the input file path to the result lines by "-p".
 
 ##### Xenhat
-* Makefile-less VS2015 support (more cpp hybridization was necessary)
+* Makefile-less VS2022 support (more cpp hybridization was necessary)
     * Side effects includes x86_64 binary, x86 is possible still
 
 ##### Sei-Lisa
@@ -47,7 +42,7 @@ wrong, and is not recommended as a base for anything but a lint tool.
 * numerous bug fixes and enhancements
 
 ##### FixedBit
-* updated and and cleaned up compile for all languages
+* updated and cleaned up compile for all languages
 
 #### Special Thanks
 * Strife Onizuka

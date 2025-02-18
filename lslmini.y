@@ -31,7 +31,7 @@
 
 %}
 
-%define parse.error verbose
+
 %locations
 %define api.pure
 %parse-param { void *scanner }
